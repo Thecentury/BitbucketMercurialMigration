@@ -39,10 +39,11 @@ if (count($argv) < 3) {
 
 $bitbucketUserName = $argv[1];
 $bitbucketUserPassword = $argv[2];
+$team = $argv[3];
 
 $client = new ExtendedClient();
 $client->authenticate(Client::AUTH_HTTP_PASSWORD, $bitbucketUserName, $bitbucketUserPassword);
-$repositories = $client->repositories()->listWorkspace($bitbucketUserName);
+$repositories = $client->repositories()->listWorkspace($team);
 
 foreach ($repositories['values'] as $item) {
     if ($item['scm'] !== 'hg') {

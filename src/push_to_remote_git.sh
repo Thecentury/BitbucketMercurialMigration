@@ -11,11 +11,12 @@ fi
 
 BitbucketAccount=$1
 Repository=$2
+Team=$3
 REPOSITORY_PING_MAX_NUM=5
 
 # create variables for the git and hg repository folder names
 gitRepoLocalPath="$Repository-git"
-gitRepoRemotePath="$BitbucketAccount/git_$Repository.git"
+gitRepoRemotePath="$Team/git_$Repository.git"
 
 git-remote-url-reachable() { ## Returns errlvl 0 if $1 is a reachable git remote url
     git ls-remote "$1" CHECK_GIT_REMOTE_URL_REACHABILITY >/dev/null 2>&1

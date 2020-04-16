@@ -35,13 +35,14 @@ if (count($argv) < 4) {
 $repoToCreateName = $argv[1];
 $bitbucketUserName = $argv[2];
 $bitbucketUserPassword = $argv[3];
+$team = $argv[4];
 
 $client = new ExtendedClient();
 $client->authenticate(Client::AUTH_HTTP_PASSWORD, $bitbucketUserName, $bitbucketUserPassword);
 
 echo "Trying to create Git repository: $repoToCreateName\n";
 try {
-    $client->repositories()->create($bitbucketUserName, $repoToCreateName, ['scm' => 'git']);
+    $client->repositories()->create($team, $repoToCreateName, ['scm' => 'git']);
 } catch (BadRequestException $e) {
     echo "Error: " . $e->getMessage() . ": $repoToCreateName" . $e->getTraceAsString() . "\n";
     return;

@@ -9,8 +9,8 @@ then
       exit
 fi
 
-./migrate.sh $1 $2
-./push_to_remote_git.sh $1 $2
+./migrate.sh $1 $2 $3
+./push_to_remote_git.sh $1 $2 $3
 
 #cleanup temp local repos
 hgRepoLocalPath="$2-hg"

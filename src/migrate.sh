@@ -10,9 +10,10 @@ fi
 
 BitbucketAccount=$1
 Repository=$2
+Team=$3
 
 # create variables for the git and hg repository folder names
-BitbucketPath="hg@bitbucket.org/$BitbucketAccount"
+BitbucketPath="hg@bitbucket.org/$Team"
 
 gitRepoLocalPath="$Repository-git"
 
